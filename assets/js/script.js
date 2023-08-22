@@ -1,7 +1,7 @@
 // declaration of variables and API keys
 var allBooks =
   "https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-02/books";
-var bibleId = "01b29f4b342acc35-01"; // 01b29f4b342acc35-01 // de4e12af7f28f599
+var bibleId = "06125adad2d5898a-01"; // 01b29f4b342acc35-01 // de4e12af7f28f599 // ASV 06125adad2d5898a-01
 var pixaUrl = `https://pixabay.com/api/?key=${pixaKey}`;
 var verseText = document.querySelector("#mainVerse");
 var verseButton = document.getElementById("verseButton");
@@ -19,7 +19,7 @@ function localVerseStorage() {
   if (storedVerse) {
     document.querySelector("#mainVerse").innerHTML = storedVerse;
   } else {
-    document.querySelector("#mainVerse").innerHTML = "31,102 Verse..." + "<br>" + "Click verse button to get random verse." + "<br>" + "Start your Journey!";
+    document.querySelector("#mainVerse").innerHTML = "31,102 Verses..." + "<br>" + "Click verse button to get random verse." + "<br>" + "Start your Journey!";
   }
 }
 
@@ -91,17 +91,17 @@ function fetchBooks(chapterBookId) {
     .catch((error) => console.error("Error:", error));
 }
 
-//  function to display random backgroun image for the verses using the pixabay API.
+//  function to display random background image for the verses using the pixabay API.
 function displayImage() {
   fetch(
-    `https://pixabay.com/api/?key=${pixaKey}&q=sky+clouds&image_type=photo&min_width=1200&category=backgrounds`
+    `https://pixabay.com/api/?key=${pixaKey}&q=sky+clouds&image_type=photo&min_width=1200&category=backgrounds&per_page=100`
   )
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log("data", data);
-      var hitsNumber = Math.round(Math.random() * (20 - 1) + 1);
+      var hitsNumber = Math.round(Math.random() * (100 - 1) + 1);
       var largeImageURL = data.hits[hitsNumber].largeImageURL;
       localStorage.setItem("viewedImagesList", JSON.stringify(largeImageURL));
       var img = "<img src='" + largeImageURL + "'width=1200/>";

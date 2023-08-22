@@ -75,11 +75,14 @@ button {
     min-height: 500px;
     background-size: cover;
     font-size: xx-large;
-    text-shadow: 1px 1px 1.5px #ffffff;
+    text-shadow: 1px 1px 1.7px #ffffff;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     padding: 1rem;
     background-position: bottom center;
+    font-weight: bold;
 }
 
 /* footer section styling */
@@ -146,7 +149,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 485px) {
     #flexBtn {
         display: flex;
         flex-direction: column;
